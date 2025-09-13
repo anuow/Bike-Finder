@@ -1,0 +1,20 @@
+{% extends "layout.html" %}
+
+{% block title %}
+News & Videos
+{% endblock %}
+
+{% block main %}
+<div class="text-center mt-5">
+    <h2 class="mb-3">🚧 News Coming Soon!</h2>
+    <p class="lead text-muted">Stay tuned for the latest updates, reviews, and motorcycle videos.</p>
+
+    <div class="row mt-4 justify-content-center">
+        <div class="col-md-4 mb-3">
+            <img src="{{ url_for('static', filename='images/comingsoon1.jpg') }}" class="img-fluid rounded shadow-sm" alt="News Teaser">
+        </div>
+    </div>
+
+    <p class="mt-4 text-muted">This section will be updated soon with curated bike news and videos.</p>
+</div>
+{% endblock %}
