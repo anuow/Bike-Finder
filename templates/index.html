@@ -1,0 +1,110 @@
+{% extends "layout.html" %}
+
+{% block title %}
+    Home
+{% endblock %}
+
+{% block main %}
+
+    <!-- Video Section -->
+    <div class="video-container" style="position: relative; width: 100%; overflow: hidden;">
+    <video autoplay muted loop playsinline style="width: 100%; height: auto; display: block;">
+        <source src="{{ url_for('static', filename='videos/bike_intro.mp4') }}" type="video/mp4">
+        Your browser does not support the video tag.
+    </video>
+    </div>
+
+    <div class="container mt-5">
+        <h2 class="mb-4 text-center">Find Your Perfect Motorcycle</h2>
+        <form method="POST" action="/result" class="p-4 rounded shadow" style="background-color: rgba(255,255,255,0.85);">
+
+            <fieldset>
+                <legend>Riding Terrain</legend>
+                <div class="mb-3">
+                    <label class="form-label">Where will you ride most?</label>
+                    <select name="usage" class="form-select" required>
+                        <option value="">Select an option</option>
+                        <option value="city">City commuting</option>
+                        <option value="touring">Touring / Highway</option>
+                        <option value="offroad">Off-road / Adventure</option>
+                        <option value="mixed">Mixed / All-rounder</option>
+
+
+                    </select>
+                    <small class="form-text text-muted mb-2">Choose if you ride both in city and highway often</small>
+
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <div class="form-group">
+                    <label for="make">Preferred Brand (Optional)</label>
+                    <select name="make" id="make" class="form-control" required>
+                        <option value="">Select a brand</option>
+                        <option value="no_preference">No preference</option>
+                        <option value="Yamaha">Yamaha</option>
+                        <option value="Royal Enfield">Royal Enfield</option>
+                        <option value="KTM">KTM</option>
+                        <option value="Bajaj">Bajaj</option>
+                        <option value="TVS">TVS</option>
+                        <option value="Suzuki">Suzuki</option>
+                        <option value="Hero">Hero</option>
+                        <option value="Honda">Honda</option>
+                        <option value="Harley-Davidson">Harley-Davidson</option>
+                    <!-- You can add more -->
+                    </select>
+
+                    <small class="form-text text-muted mb-2">Choose your preffered brand</small>
+                </div>
+            </fieldset>
+
+
+            <fieldset>
+                <legend>Riding Frequency</legend>
+                <div class="mb-3">
+                    <label class="form-label">How often do you ride?</label>
+                    <select name="frequency" class="form-select" required>
+                        <option value="">Select an option</option>
+                        <option value="daily">Daily</option>
+                        <option value="few_days">Few days a week</option>
+                        <option value="rarely">Rarely / Occasionally</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <fieldset>
+                <legend>Budget (USD)</legend>
+                <div class="mb-3">
+                    <label class="form-label">What is your budget?</label>
+                    <select name="budget" class="form-select" required>
+                        <option value="">Select a range</option>
+                        <option value="under_2k">$0 – $2,000</option>
+                        <option value="2k_4k">$2,000 – $4,000</option>
+                        <option value="4k_6k">$4,000 – $6,000</option>
+                        <option value="above_6k">Above $6,000</option>
+                    </select>
+                </div>
+            </fieldset>
+
+
+            <fieldset>
+                <legend>Riding Reason</legend>
+
+                <div class="mb-4">
+                    <label class="form-label">Why are you getting a bike?</label>
+                    <select name="purpose" class="form-select" required>
+                        <option value="">Choose One</option>
+                        <option value="commute">Daily Commute</option>
+                        <option value="long_ride">Long Rides & Touring</option>
+                        <option value="flexible">Flexible Usage</option>
+                        <option value="fun">Weekend/Fun Machine</option>
+                    </select>
+                </div>
+            </fieldset>
+
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary px-4">Find Bikes</button>
+            </div>
+        </form>
+    </div>
+{% endblock %}
