@@ -1,0 +1,50 @@
+{% extends "layout.html" %}
+
+{% block title %}
+Recommended Bikes
+{% endblock %}
+
+{% block main %}
+<div class="container mt-5">
+  <h2 class="mb-4 text-center">Recommended Two Wheelers</h2>
+
+  {% if bikes %}
+  <div class="row">
+    {% for bike in bikes %}
+    <div class="col-md-6 col-lg-4 mb-4">
+      <div class="card h-100 shadow-sm border-0 p-3">
+        <div class="card-body">
+          <h5 class="card-title">{{ bike.make }} {{ bike.model }}</h5>
+          <p class="card-subtitle text-muted mb-2">{{ bike.year or "N/A" }} | {{ bike.type or "N/A" }}</p>
+          <ul class="list-unstyled small">
+            <li><strong>Displacement:</strong> {{ bike.displacement or "N/A" }}</li>
+            <li><strong>Engine:</strong> {{ bike.engine or "N/A" }}</li>
+            <li><strong>Power:</strong> {{ bike.power.strip() if bike.power else "N/A" }}</li>
+            <li><strong>Torque:</strong> {{ bike.torque.strip() if bike.torque else "N/A" }}</li>
+            <li><strong>Gearbox:</strong> {{ bike.gearbox.strip() if bike.gearbox else "N/A" }}</li>
+            <li><strong>Cooling:</strong> {{ bike.cooling.strip() if bike.cooling else "N/A" }}</li>
+          </ul>
+
+          {% if session.get("user_id") %}
+          <form action="/add_to_wishlist" method="POST" style="display:inline;">
+            <input type="hidden" name="bike_make" value="{{ bike.make }}">
+            <input type="hidden" name="bike_model" value="{{ bike.model }}">
+            <button type="submit" class="btn btn-outline-danger">♥ Add to Wishlist</button>
+          </form>
+          {% else %}
+          <a href="/login" class="btn btn-outline-danger">♥ Add to Wishlist</a>
+          {% endif %}
+        </div>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+  {% else %}
+  <p class="text-center text-muted">No bikes found for your criteria.</p>
+  {% endif %}
+
+  <div class="text-center mt-4">
+    <a href="/" class="btn btn-secondary">Search Again</a>
+  </div>
+</div>
+{% endblock %}
