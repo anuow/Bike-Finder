@@ -1,0 +1,53 @@
+{% extends "layout.html" %}
+{% block main %}
+<h2>Your Wishlist</h2>
+
+<div class="d-flex justify-content-end mb-3">
+    <a href="/wishlist/pdf" class="btn btn-primary">Download Wishlist as PDF</a>
+</div>
+
+
+
+{% if items %}
+  <ul class="list-group" id="wishlist-list">
+    {% for item in items %}
+      <li class="list-group-item d-flex justify-content-between align-items-center" data-id="{{ item.id }}">
+        {{ item.bike_make }} {{ item.bike_model }}
+        <button class="btn btn-danger btn-sm remove-wishlist" data-id="{{ item.id }}">Remove</button>
+      </li>
+    {% endfor %}
+  </ul>
+{% else %}
+  <p>No bikes in your wishlist yet.</p>
+{% endif %}
+
+<script>
+document.addEventListener("click", async function(e) {
+    if (e.target.classList.contains("remove-wishlist")) {
+        const bikeId = e.target.dataset.id;
+
+        try {
+            const res = await fetch("/remove_from_wishlist", {
+                method: "POST",
+                headers: {
+                    "Content-Type": "application/json",
+                    "X-Requested-With": "XMLHttpRequest"
+                },
+                body: JSON.stringify({ id: bikeId })
+            });
+
+            const data = await res.json();
+            alert(data.message);
+
+            if (data.success) {
+                // Remove from DOM without reload
+                e.target.closest("li").remove();
+            }
+        } catch (err) {
+            console.error("Error removing from wishlist:", err);
+            alert("Failed to remove item.");
+        }
+    }
+});
+</script>
+{% endblock %}
