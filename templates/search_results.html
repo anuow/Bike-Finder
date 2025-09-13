@@ -1,0 +1,34 @@
+{% extends "layout.html" %}
+{% block title %}Search Results{% endblock %}
+
+{% block main %}
+    <h2>Search results for "{{ query }}"</h2>
+
+    {% if bikes %}
+        <div class="row">
+            {% for bike in bikes %}
+                <div class="col-md-4 mb-4">
+                    <div class="card h-100">
+                        <div class="card-body">
+                            <h5>{{ bike.make }} {{ bike.model }}</h5>
+                            <p class="text-muted">{{ bike.year or "N/A" }} | {{ bike.type or "N/A" }}</p>
+
+                            {% if (bike.make, bike.model) in wishlist_set %}
+                                <button class="btn btn-danger add-to-wishlist" data-make="{{ bike.make }}" data-model="{{ bike.model }}">
+                                    ♥ In Wishlist
+                                </button>
+                            {% else %}
+                                <button class="btn btn-outline-danger add-to-wishlist" data-make="{{ bike.make }}" data-model="{{ bike.model }}">
+                                    ♥ Add to Wishlist
+                                </button>
+                            {% endif %}
+
+                        </div>
+                    </div>
+                </div>
+            {% endfor %}
+        </div>
+    {% else %}
+        <p>No results found.</p>
+    {% endif %}
+{% endblock %}
