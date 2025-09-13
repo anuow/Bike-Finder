@@ -1,5 +1,5 @@
 # Bike Finder
-#### Video Demo: https://youtu.be/FaTC-bAddC8
+
 #### Description:
 
 ## Introduction
@@ -34,26 +34,28 @@ Through these features, Bike Finder aims to serve both casual visitors and regis
 
 ## File Breakdown
 
-* **app.py**: The main Flask application that handles routing, user authentication, and core logic.
-* **config.py**: Stores configuration variables for the application, including session settings and database connections.
-* **helpers.py**: Contains utility functions, such as decorators for login requirements or helper methods for handling queries.
-* **users.db**: SQLite database storing user information, login credentials, and wishlist data.
-* **/static/**: Holds all static files including images, JavaScript, CSS, and videos.
+- **app.py**: The main Flask application that handles routing, user authentication, and core logic.
+- **config.py**: Stores configuration variables for the application, including session settings and database connections.
+- **helpers.py**: Contains utility functions, such as decorators for login requirements or helper methods for handling queries.
+- **users.db**: SQLite database storing user information, login credentials, and wishlist data.
+- **/static/**: Holds all static files including images, JavaScript, CSS, and videos.
 
-  * `images/`: Contains images like the project logo and placeholders for upcoming content.
-  * `js/`: Includes `search.js` and `wishlist.js` which handle client-side interactivity such as searching and managing the wishlist dynamically.
-  * `videos/`: Contains a short bike video to make the site engaging.
-  * `styles.css`: Provides styling for the overall look and feel of the site.
-* **/templates/**: Contains all HTML files rendered via Jinja.
+  - `images/`: Contains images like the project logo and placeholders for upcoming content.
+  - `js/`: Includes `search.js` and `wishlist.js` which handle client-side interactivity such as searching and managing the wishlist dynamically.
+  - `videos/`: Contains a short bike video to make the site engaging.
+  - `styles.css`: Provides styling for the overall look and feel of the site.
 
-  * `layout.html`: The base template inherited by all other pages.
-  * `index.html`: Homepage introducing the site.
-  * `login.html`, `register.html`: Authentication pages.
-  * `wishlist.html`: Displays the logged-in user’s wishlist.
-  * `search_results.html` and `result.html`: Display search outcomes and detailed results.
-  * `news.html`: Placeholder or optional feature for bike-related updates.
-  * `error.html`: Handles user-facing error messages.
-* **README.md**: This documentation file.
+- **/templates/**: Contains all HTML files rendered via Jinja.
+
+  - `layout.html`: The base template inherited by all other pages.
+  - `index.html`: Homepage introducing the site.
+  - `login.html`, `register.html`: Authentication pages.
+  - `wishlist.html`: Displays the logged-in user’s wishlist.
+  - `search_results.html` and `result.html`: Display search outcomes and detailed results.
+  - `news.html`: Placeholder or optional feature for bike-related updates.
+  - `error.html`: Handles user-facing error messages.
+
+- **README.md**: This documentation file.
 
 ---
 
@@ -83,10 +85,10 @@ Additionally, ensuring smooth interactivity with JavaScript for features like th
 
 Testing was carried out in multiple phases:
 
-* **Unit Testing**: Core functions in `helpers.py` were tested with sample inputs to ensure correct outputs.
-* **Manual Testing**: Various user scenarios such as registering, logging in, adding to wishlist, and searching were performed to confirm expected behavior.
-* **Error Handling**: Incorrect login attempts, invalid search queries, and edge cases (like an empty wishlist) were tested to ensure the system responds gracefully.
-* **Valgrind / Flask Debugger**: Used to confirm memory and session handling were efficient.
+- **Unit Testing**: Core functions in `helpers.py` were tested with sample inputs to ensure correct outputs.
+- **Manual Testing**: Various user scenarios such as registering, logging in, adding to wishlist, and searching were performed to confirm expected behavior.
+- **Error Handling**: Incorrect login attempts, invalid search queries, and edge cases (like an empty wishlist) were tested to ensure the system responds gracefully.
+- **Valgrind / Flask Debugger**: Used to confirm memory and session handling were efficient.
 
 ---
 
@@ -94,16 +96,15 @@ Testing was carried out in multiple phases:
 
 While functional, Bike Finder currently has limitations:
 
-* The database is static and does not pull live data from manufacturers.
-* The recommendation system is based on preset logic rather than advanced filtering or AI-driven personalization.
-* The UI can be further polished with more responsive design for mobile devices.
+- The database is static and does not pull live data from manufacturers.
+- The recommendation system is based on preset logic rather than advanced filtering or AI-driven personalization.
+- The UI can be further polished with more responsive design for mobile devices.
 
 In future versions, I plan to:
 
-
-* Improve search by adding filters (price, mileage, brand).
-* Expand the recommendation system to be more intelligent.
-* Add social features, such as sharing wishlists with friends.
+- Improve search by adding filters (price, mileage, brand).
+- Expand the recommendation system to be more intelligent.
+- Add social features, such as sharing wishlists with friends.
 
 ---
 
@@ -114,7 +115,3 @@ Bike Finder has been a rewarding project that brought together skills across mul
 Although there are areas for improvement, I am proud of the progress made and the functionality delivered within the scope of CS50. This project represents my growth as a programmer and my ability to take an idea from concept to execution.
 
 ---
-
-
-
-
